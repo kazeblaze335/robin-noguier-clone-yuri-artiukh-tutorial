@@ -15,8 +15,8 @@ function raf() {
     speed *= 0.8;
 
     objs.forEach((o, i) => {
-        o.dist = (position - i)/4;
-        o.dist = Math.abs(o.dist);
+        o.dist = Math.min(Math.abs(position - i),1);
+        o.dist = o.dist;
         elems[i].style.transform = `scale(${1 - o.dist})`;
     
     })
