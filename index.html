@@ -52,9 +52,31 @@
         z-index: -1;
         pointer-events: none;
     }
+    ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        border: 1px solid #000;
+        width: 200px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        font-size: 50px;
+        border: 1px solid #000;
+    }
 </style>
 
 <body>
+    <ul class="nav">
+        <li data-nav="0">111</li>
+        <li data-nav="1">22</li>
+        <li data-nav="2">33</li>
+        <li data-nav="3">44</li>
+        <li data-nav="4">55</li>
+    </ul>
     <div id="wrap">
         <div class="n"><img src="/img/1.jpg" width="60"></img></div>
         <div class="n n1"><img src="/img/2.jpg" width="60"></img></div>

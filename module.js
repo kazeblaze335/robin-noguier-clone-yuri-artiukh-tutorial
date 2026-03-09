@@ -123,7 +123,7 @@ export default class Sketch {
         resolution: { value: new THREE.Vector4() },
       },
       // wireframe: true,
-      // transparent: true,
+      transparent: true,
       vertexShader: vertex,
       fragmentShader: fragment,
     });
