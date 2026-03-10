@@ -1,4 +1,5 @@
 import Sketch from "./module";
+import gsap from "gsap";
 
 let sketch = new Sketch({
   dom: document.getElementById("container"),
@@ -37,7 +38,7 @@ function raf() {
   let diff = rounded - position;
 
   if (attractMode) {
-    position += -(position - attractTo) * 0.035;
+    position += -(position - attractTo) * 0.03;
   } else {
     position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
     wrap.style.transform = `translate(0, ${-position * 100 + 50}px)`;
@@ -50,11 +51,24 @@ raf();
 
 let navs = [...document.querySelectorAll("li")];
 let nav = document.querySelector(".nav");
+
+let rotationDivs = sketch.groups.map((e) => e.rotation);
+
 nav.addEventListener("mouseenter", () => {
   attractMode = true;
+  gsap.to(rotationDivs, {
+    x: -0.5,
+    y: 0,
+    z: 0,
+  });
 });
 nav.addEventListener("mouseleave", () => {
   attractMode = false;
+  gsap.to(rotationDivs, {
+    x: -0.3,
+    y: -0.5,
+    z: -0.1,
+  });
 });
 
 navs.forEach((el) => {
